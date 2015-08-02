@@ -1,19 +1,19 @@
 {
     "name": "wartron/yii2docker",
     "description": "Yii2 Docker Module",
-    "keywords": ["yii2", "yii2-docker", "docker",],
+    "keywords": ["yii2", "yii2-docker", "docker"],
     "type": "yii2-extension",
     "license": "MIT",
     "authors": [
         {
             "name": "Will Wharton",
-            "email": "willmwharton@gmail.com",
+            "email": "willmwharton@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
         "yiisoft/yii2": "~2.0",
-        "stage1/docker-php": "@dev",
+        "stage1/docker-php": "@dev"
     },
     "autoload": {
         "psr-4": {
