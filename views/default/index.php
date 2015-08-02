@@ -1,12 +1,10 @@
+
 <?php
 
+    echo \Yii::$app->getModule('docker')->getCountRunning() . " Running <BR><BR>";
+    echo \Yii::$app->getModule('docker')->getCountImages() . " Images <BR><BR>";
 
 
-?>
-<div class="row">
-<?php
-
-echo \Yii::$app->getModule('docker')->getCountRunning() . " Running <BR><BR>";
 
     // echo \app\widgets\Smallbox::widget([
     //     'h3'            => \Yii::$app->getModule('docker')->getCountRunning(),
@@ -26,9 +24,4 @@ echo \Yii::$app->getModule('docker')->getCountRunning() . " Running <BR><BR>";
     //     'title'         => 'Images',
     //     'url'           => ['/docker/image'],
     // ]);
-
-
-?>
-
-</div>
 

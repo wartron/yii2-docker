@@ -5,18 +5,17 @@ use yii\helpers\Url;
 use yii\grid\GridView;
 
 $this->title = 'View';
-$this->params['breadcrumbs'][] = ['label' => 'Containers', 'url' => ['/docker/container']];
+$this->params['breadcrumbs'][] = ['label' => 'Images', 'url' => ['/docker/image']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="docker-default-index">
 
     <div class="panel panel-default">
-        <div class="panel-heading">Container View</div>
+        <div class="panel-heading">Image View</div>
         <div class="panel-body">
             <div class="table-responsive">
-                <pre><?php print_r($container->getConfig()); ?></pre>
-                <pre><?php print_r($container->getRuntimeInformations()); ?></pre>
+                <pre><?php print_r($image); ?></pre>
             </div>
         </div>
     </div>

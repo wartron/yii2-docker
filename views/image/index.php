@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\grid\GridView;
 
 $this->title = 'Images';
+$this->params['breadcrumbs'][] = ['label' => 'Images', 'url' => ['/docker/image']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -19,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'layout' => '{summary}{pager}{items}{pager}',
                         'dataProvider' => $dataProvider,
                          'columns' => [
-                            'id',
+                            app\grid\ColumnPreset::linkId('image',12),
                             'repository',
                             'tag',
                         ]
