@@ -20,7 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         'layout' => '{summary}{pager}{items}{pager}',
                         'dataProvider' => $dataProvider,
                          'columns' => [
-                            app\grid\ColumnPreset::linkId('image',12),
+                            [
+                                'attribute' =>  'id',
+                                'format'    =>  'raw',
+                                'value'     =>  function($m) {
+                                    return Html::a($m['id'],['view','id'=>$m['id']]);
+                                }
+                            ],
                             'repository',
                             'tag',
                         ]
