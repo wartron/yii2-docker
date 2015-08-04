@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'attribute' =>  'id',
                                 'format'    =>  'raw',
                                 'value'     =>  function($m) {
-                                    return Html::a($m['id'],['view','id'=>$m['id']]);
+                                    return Html::a(substr($m['id'],0,12),['view','id'=>$m['id']]);
                                 }
                             ],
                             [
