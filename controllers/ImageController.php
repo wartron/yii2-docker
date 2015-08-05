@@ -29,10 +29,10 @@ class ImageController extends BaseDockerController
 
     public function actionView($id)
     {
-        $container = \Yii::$app->getModule('docker')->Images()->find($id);
+        $image = \Yii::$app->getModule('docker')->Images()->findById($id);
 
         return $this->render('view',[
-            'container'  => $container,
+            'image'  => $image,
         ]);
     }
 }
