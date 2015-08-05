@@ -12,8 +12,14 @@ use Docker\Container;
  */
 class Module extends BaseModule
 {
-
     const VERSION = '0.0.2-dev';
+
+    /** @var int Number of Contianers per page, used for ArrayDataProvider in ContianerController. */
+    public $containerPageSize = 20;
+
+    /** @var int Number of Images per page, used for ArrayDataProvider in ImageController. */
+    public $imagePageSize = 20;
+
 
     private $_docker;
 

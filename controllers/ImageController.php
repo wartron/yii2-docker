@@ -10,7 +10,7 @@ class ImageController extends BaseDockerController
 
     public function actionIndex()
     {
-        $all = \Yii::$app->getModule('docker')->ImagesFormated()
+        $all = \Yii::$app->getModule('docker')->ImagesFormated();
 
         $dataProvider = new ArrayDataProvider([
             'allModels' => $all,
@@ -18,7 +18,7 @@ class ImageController extends BaseDockerController
                 'attributes' => ['id', 'repository', 'tag'],
             ],
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => \Yii::$app->getModule('docker')->imagePageSize,
             ],
         ]);
 
