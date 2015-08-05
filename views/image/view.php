@@ -9,9 +9,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Images', 'url' => ['/docker/image'
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<div class="docker-default-index">
+<div class="docker-image-index">
 
-    <div class="panel panel-default">
+    <div class="panel panel-docker-image">
         <div class="panel-heading">Image View</div>
         <div class="panel-body">
             <div class="table-responsive">

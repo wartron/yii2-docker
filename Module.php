@@ -108,7 +108,7 @@ class Module extends BaseModule
     {
         $ret = [];
 
-        $imgs = \Yii::$app->getModule('docker')->Images()->findAll($dangling,$all);
+        $imgs = $this->Images()->findAll($dangling,$all);
         foreach($imgs as $i){
             $ret[] = [
                 'id'            =>  $i->getId(),

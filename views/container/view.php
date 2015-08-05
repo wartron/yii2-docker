@@ -9,9 +9,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Containers', 'url' => ['/docker/co
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<div class="docker-default-index">
+<div class="docker-container-index">
 
-    <div class="panel panel-default">
+    <div class="panel panel-docker-container">
         <div class="panel-heading">Container View</div>
         <div class="panel-body">
             <div class="table-responsive">
