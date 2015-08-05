@@ -1,11 +1,14 @@
 # Yii2-Docker
 
-This provides a simple Yii2 Module to view and interact with the Docker Remote API
+This provides a simple Yii2 Module to view and interact with the Docker Remote API.
 It includes simple grid views for both containers and images.
+
+
 
 ## Installation
 
-Add to the modules in config.main
+Add to the modules in config/main.php
+
 If you are using the advanced template you want to add this to backend/config/main.php
 
     'modules'    => [
@@ -25,3 +28,13 @@ Override the views by updating the pathMap
             ],
         ],
     ],
+
+
+
+## Configuration
+
+This uses stage1/docker-php wich is configued with ENV variables.
+
+ * `DOCKER_HOST` - defaults to unix:///var/run/docker.sock
+ * `DOCKER_TLS_VERIFY` - defaults to 0
+ * `DOCKER_CERT_PATH` -
