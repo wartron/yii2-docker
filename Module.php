@@ -12,8 +12,15 @@ use Docker\Container;
  */
 class Module extends BaseModule
 {
+
+    const VERSION = '0.0.2-dev';
+
     private $_docker;
 
+    /**
+     * Initializes and returns the docker object
+     * @return Docker
+     */
     public function getDocker()
     {
         if($this->_docker)
@@ -24,24 +31,93 @@ class Module extends BaseModule
         return $this->_docker;
     }
 
+    /**
+     * Returns the docker container mananger
+     * @return ContainerManager
+     */
     public function Containers()
     {
         return $this->getDocker()->getContainerManager();
     }
 
+    /**
+     * Returns the docker image mananger
+     * @return ImageManager
+     */
     public function Images()
     {
         return $this->getDocker()->getImageManager();
     }
 
+    /**
+     * Returns the number of running containers
+     * @return int
+     */
     public function getCountRunning()
     {
         return count($this->Containers()->findAll());
     }
 
+    /**
+     * Returns the number of images
+     * @return int
+     */
     public function getCountImages()
     {
         return count($this->Images()->findAll());
+    }
+
+
+    /**
+     * Returns the containers info as a flat array for gridviews
+     * @return array
+     */
+    public function ContainersFormated()
+    {
+        $ret = [];
+
+        $all = $this->Containers()->findAll();
+
+        foreach($all as $a)
+        {
+
+            $d = $a->getData();
+
+            $r = [
+                'id'        =>  $a->getId(),
+                'name'      =>  $a->getName(),
+                'image'     =>  $a->getImage()->__toString(),//$d['Image']
+                'command'   =>  $d['Command'],
+                'created'   =>  $d['Created'],
+                'status'    =>  $d['Status'],
+                //'data'      => $d,
+            ];
+
+            $ret[] = $r;
+        }
+
+        return $ret;
+    }
+
+
+    /**
+     * Returns the image info as a flat array for gridviews
+     * @return array
+     */
+    public function ImagesFormated($dangling = false, $all = false)
+    {
+        $ret = [];
+
+        $imgs = \Yii::$app->getModule('docker')->Images()->findAll($dangling,$all);
+        foreach($imgs as $i){
+            $ret[] = [
+                'id'            =>  $i->getId(),
+                'repository'    =>  $i->getRepository(),
+                'tag'           =>  $i->getTag(),
+            ];
+        }
+
+        return $ret;
     }
 
 }

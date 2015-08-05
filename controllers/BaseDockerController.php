@@ -21,13 +21,7 @@ class BaseDockerController extends Controller
                     [
                         'actions'       => ['index', 'view'],
                         'allow'         => true,
-                        'roles'         => ['@'],
-                        'matchCallback' => function ($rule, $action) {
-                            return in_array(
-                                \Yii::$app->user->identity->username,
-                                \Yii::$app->getModule('user')->admins
-                            );
-                        }
+                        'roles'         => ['@']
                     ],
                 ]
             ]

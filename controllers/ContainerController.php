@@ -8,10 +8,9 @@ use yii\data\ArrayDataProvider;
 class ContainerController extends BaseDockerController
 {
 
-
     public function actionIndex()
     {
-        $all = $this->allFormatted();
+        $all = \Yii::$app->getModule('docker')->ContainersFormated()
 
         $dataProvider = new ArrayDataProvider([
             'allModels' => $all,
@@ -27,33 +26,6 @@ class ContainerController extends BaseDockerController
             'dataProvider'  => $dataProvider,
         ]);
     }
-
-    public function allFormatted()
-    {
-        $ret = [];
-
-        $all = \Yii::$app->getModule('docker')->Containers()->findAll();
-        foreach($all as $a){
-
-            $d = $a->getData();
-
-            $r = [
-                'id'        =>  $a->getId(),
-                'name'      =>  $a->getName(),
-                'image'     =>  $a->getImage()->__toString(),//$d['Image']
-                'command'   =>  $d['Command'],
-                'created'   =>  $d['Created'],
-                'status'    =>  $d['Status'],
-                //'data'      => $d,
-            ];
-
-            $ret[] = $r;
-        }
-
-        return $ret;
-    }
-
-
 
     public function actionView($id)
     {

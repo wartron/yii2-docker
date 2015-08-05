@@ -10,7 +10,7 @@ class ImageController extends BaseDockerController
 
     public function actionIndex()
     {
-        $all = $this->allFormatted();
+        $all = \Yii::$app->getModule('docker')->ImagesFormated()
 
         $dataProvider = new ArrayDataProvider([
             'allModels' => $all,
@@ -26,24 +26,6 @@ class ImageController extends BaseDockerController
             'dataProvider'  => $dataProvider,
         ]);
     }
-
-
-    public function allFormatted($dangling = false, $all = false)
-    {
-        $ret = [];
-
-        $imgs = \Yii::$app->getModule('docker')->Images()->findAll($dangling,$all);
-        foreach($imgs as $i){
-            $ret[] = [
-                'id'            =>  $i->getId(),
-                'repository'    =>  $i->getRepository(),
-                'tag'           =>  $i->getTag(),
-            ];
-        }
-
-        return $ret;
-    }
-
 
     public function actionView($id)
     {

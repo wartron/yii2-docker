@@ -7,7 +7,6 @@ use yii\web\Controller;
 
 class DefaultController extends BaseDockerController
 {
-
     public function actionIndex()
     {
         return $this->render('index');
