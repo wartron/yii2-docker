@@ -85,7 +85,7 @@ class ContainerController extends BaseDockerController
     {
         $port = array();
         $portId = 0;
-        foreach($info['HostConfig']['PortBindings'] as $k => $v )
+        foreach($info['NetworkSettings']['Ports'] as $k => $v )
         {
             $exposed = explode("/",$k);
             $remoteHost = $remotePort = null;
