@@ -39,6 +39,7 @@ class ContainerController extends BaseDockerController
             'envDP'     =>  $this->getEnvDataProvider($info),
             'volDP'     =>  $this->getVolDataProvider($info),
             'portsDP'   =>  $this->getPortsDataProvider($info),
+            'linksDP'   =>  $this->getLinksDataProvider($info),
         ]);
     }
 
@@ -107,5 +108,27 @@ class ContainerController extends BaseDockerController
         ]);
 
         return $portDP;
+    }
+
+    public function getLinksDataProvider($info)
+    {
+        $link = array();
+        $linkId = 0;
+        foreach($info['HostConfig']['Links'] as $k => $v )
+        {
+            $p = explode(":",$k);
+
+            $link[] = [
+                'id'        =>  $linkId++,
+                'local'     =>  $p[0],
+                'remote'    =>  $p[1],
+            ];
+        }
+        $linkDP = new ArrayDataProvider([
+            'allModels' =>  $link,
+        ]);
+
+        return $linkDP;
+
     }
 }

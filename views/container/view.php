@@ -81,6 +81,28 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">Networking - Links</div>
+            <div class="panel-body" style="padding:0">
+                <?php
+                    echo GridView::widget([
+                        'layout'        =>  '{items}',
+                        //'showHeader'    =>  false,
+                        'dataProvider'  =>  $linksDP,
+                        'tableOptions'=>[
+                            'class' =>  'table table-striped table-bordered',
+                            'style' =>  'margin-bottom: 0px'
+                        ],
+                        'columns'       =>  [
+                            'local',
+                            'remote',
+                        ]
+                    ]);
+                ?>
+
+            </div>
+        </div>
+
     </div>
     <div class="col-md-6">
         <div class="panel panel-default">
