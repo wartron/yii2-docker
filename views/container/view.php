@@ -27,6 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     'attributes' => [
                         [
+                            'attribute' =>  'Name',
+                            'label'  => 'Name',
+                        ],
+                        [
                             'attribute' =>  'Config.Image',
                             'label'  => 'Image',
                         ],
@@ -58,6 +62,31 @@ $this->params['breadcrumbs'][] = $this->title;
                 ?>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Networking</div>
+            <div class="panel-body" style="padding:0">
+                <?php
+                    echo GridView::widget([
+                        'layout'        =>  '{items}',
+                        'showHeader'    =>  false,
+                        'dataProvider'  =>  $portsDP,
+                        'tableOptions'=>[
+                            'class' =>  'table table-striped table-bordered',
+                            'style' =>  'margin-bottom: 0px'
+                        ],
+                        'columns'       =>  [
+                            'proto',
+                            'localPort',
+                            'remoteHost',
+                            'remotePort',
+                        ]
+                    ]);
+                ?>
+
+            </div>
+        </div>
+
     </div>
     <div class="col-md-6">
         <div class="panel panel-default">
