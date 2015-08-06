@@ -150,7 +150,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             'style' =>  'margin-bottom: 0px'
                         ],
                         'columns'       =>  [
-                            'rw',
+                            [
+                                'attribute' =>  'rw',
+                                'format' =>  'raw',
+                                'value' => function ($m) {
+                                    if($m['rw']=='rw')
+                                        return '<span class="label label-success">RW</span>';
+                                    return '<span class="label label-default">RO</span>';
+                                }
+                            ],
                             'local',
                             'remote',
                         ]

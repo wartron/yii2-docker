@@ -33,7 +33,7 @@ Override the views by updating the pathMap
 
 ## Configuration
 
-This uses stage1/docker-php wich is configued with ENV variables.
+This uses my fork of stage1/docker-php found @ [wartron/docker-php](https://github.com/wartron/docker-php) which is configued with ENV variables.
 
  * `DOCKER_HOST` - defaults to unix:///var/run/docker.sock
  * `DOCKER_TLS_VERIFY` - defaults to 0
