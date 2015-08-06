@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     echo GridView::widget([
                         'layout'        => '{summary}{pager}{items}{pager}',
                         'dataProvider'  => $dataProvider,
-                         'columns'      => [
+                        'columns'       => [
                             [
                                 'attribute' =>  'id',
                                 'format'    =>  'raw',

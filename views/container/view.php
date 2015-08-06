@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="panel-heading">Container Config</div>
             <div class="panel-body">
                 <?php
+                $createdTime = strtotime(substr($info['Created'],0,strpos($info['Created'], '.')));
                 echo DetailView::widget([
                     'model' => $info,
                     'attributes' => [
@@ -41,7 +42,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             'type'  =>  'raw',
                             'value' => join(array_keys($info['Config']['ExposedPorts']),' ')
                         ],
-                        'Created',
+                        [
+                            'attribute' =>  'Created',
+                            'format'    =>  'raw',
+                            'value'     =>  '<span title="'.\Yii::$app->formatter->asDatetime($createdTime).'">'.\Yii::$app->formatter->asRelativeTime($createdTime).'</span>'
+                        ],
+
                     ],
                 ]);
 
