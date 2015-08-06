@@ -45,12 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             'label'  => 'Hostname',
                         ],
                         [
-                            'attribute' =>  'Config.ExposedPorts',
-                            'label'  => 'Ports',
-                            'type'  =>  'raw',
-                            'value' => join(array_keys($info['Config']['ExposedPorts']),' ')
-                        ],
-                        [
                             'attribute' =>  'Created',
                             'format'    =>  'raw',
                             'value'     =>  '<span title="'.\Yii::$app->formatter->asDatetime($createdTime).'">'.\Yii::$app->formatter->asRelativeTime($createdTime).'</span>'
@@ -64,22 +58,22 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading">Networking</div>
+            <div class="panel-heading">Networking - Ports</div>
             <div class="panel-body" style="padding:0">
                 <?php
                     echo GridView::widget([
                         'layout'        =>  '{items}',
-                        'showHeader'    =>  false,
+                        //'showHeader'    =>  false,
                         'dataProvider'  =>  $portsDP,
                         'tableOptions'=>[
                             'class' =>  'table table-striped table-bordered',
                             'style' =>  'margin-bottom: 0px'
                         ],
                         'columns'       =>  [
-                            'proto',
+                            'protocal',
                             'localPort',
-                            'remoteHost',
-                            'remotePort',
+                            'hostAddr',
+                            'hostPort',
                         ]
                     ]);
                 ?>

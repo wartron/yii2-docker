@@ -88,18 +88,18 @@ class ContainerController extends BaseDockerController
         foreach($info['NetworkSettings']['Ports'] as $k => $v )
         {
             $exposed = explode("/",$k);
-            $remoteHost = $remotePort = null;
+            $hostAddr = $hostPort = null;
             if(is_array($v) && is_array($v[0])){
-                $remoteHost = $v[0]['HostIp'];
-                $remotePort = $v[0]['HostPort'];
+                $hostAddr = $v[0]['HostIp'];
+                $hostPort = $v[0]['HostPort'];
             }
 
             $port[] = [
                 'id'            =>  $portId++,
-                'proto'         =>  $exposed[1],
+                'protocal'      =>  $exposed[1],
                 'localPort'     =>  $exposed[0],
-                'remoteHost'    =>  $remoteHost,
-                'remotePort'    =>  $remotePort,
+                'hostAddr'      =>  $remoteHost,
+                'hostPort'      =>  $remotePort,
             ];
         }
         $portDP = new ArrayDataProvider([
