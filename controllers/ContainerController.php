@@ -114,6 +114,9 @@ class ContainerController extends BaseDockerController
     {
         $link = array();
         $linkId = 0;
+        if(!is_array($info['HostConfig']['Links']){
+            $info['HostConfig']['Links'] = array();
+        }
         foreach($info['HostConfig']['Links'] as $k => $v )
         {
             $p = explode(":",$v);
