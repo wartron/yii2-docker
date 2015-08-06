@@ -116,7 +116,7 @@ class ContainerController extends BaseDockerController
         $linkId = 0;
         foreach($info['HostConfig']['Links'] as $k => $v )
         {
-            $p = explode(":",$k);
+            $p = explode(":",$v);
 
             $link[] = [
                 'id'        =>  $linkId++,
