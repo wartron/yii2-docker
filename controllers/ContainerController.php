@@ -98,8 +98,8 @@ class ContainerController extends BaseDockerController
                 'id'            =>  $portId++,
                 'protocal'      =>  $exposed[1],
                 'localPort'     =>  $exposed[0],
-                'hostAddr'      =>  $remoteHost,
-                'hostPort'      =>  $remotePort,
+                'hostAddr'      =>  $hostAddr,
+                'hostPort'      =>  $hostPort,
             ];
         }
         $portDP = new ArrayDataProvider([
