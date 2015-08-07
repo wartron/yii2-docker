@@ -13,7 +13,8 @@
     "minimum-stability": "dev",
     "require": {
         "yiisoft/yii2": "~2.0",
-        "stage1/docker-php": "@dev"
+        "stage1/docker-php": "@dev",
+        "kartik-v/yii2-helpers": "*"
     },
     "autoload": {
         "psr-4": {
