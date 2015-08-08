@@ -1,6 +1,7 @@
 <?php
 
 use yii\grid\GridView;
+use kartik\helpers\Html;
 
 echo GridView::widget([
     'layout'        =>  '{items}',
@@ -16,8 +17,8 @@ echo GridView::widget([
             'format' =>  'raw',
             'value' => function ($m) {
                 if($m['rw']=='rw')
-                    return '<span class="label label-success">RW</span>';
-                return '<span class="label label-default">RO</span>';
+                    return Html::bsLabel('RW', Html::TYPE_SUCCESS);
+                return Html::bsLabel('RO');
             }
         ],
         'local',

@@ -2,8 +2,6 @@
 
 use kartik\helpers\Html;
 use yii\helpers\Url;
-use yii\grid\GridView;
-use yii\widgets\DetailView;
 
 $this->title = 'View';
 $this->params['breadcrumbs'][] = ['label' => 'Containers', 'url' => ['/docker/container']];
