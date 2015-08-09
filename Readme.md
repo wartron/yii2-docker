@@ -4,12 +4,13 @@ This provides a simple Yii2 Module to view and interact with the Docker Remote A
 It includes simple grid views for both containers and images.
 
 
-
 ## Installation
 
 Add to the modules in config/main.php
 
 If you are using the advanced template you want to add this to backend/config/main.php
+
+You can override the default layout as well.
 
     'modules'    => [
         'docker'  => [
@@ -19,7 +20,7 @@ If you are using the advanced template you want to add this to backend/config/ma
     ],
 
 
-Override the views by updating the pathMap
+Optional Override the views by updating the theme pathMap
 
     'view'         => [
         'theme' => [
